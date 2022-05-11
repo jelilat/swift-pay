@@ -21,13 +21,23 @@ export default function CreatePayment() {
     const [url, setUrl] = useState('');
 
       useEffect(async () => {
-          const newUrl = new URL(window.location.href);
-          setStreamData({
-                ...streamData,
-                sender: newUrl.searchParams.get('sender'),
-                receiver: newUrl.searchParams.get('receiver'),
-                amount: newUrl.searchParams.get('amount'),
-          })
+        //   await window.contract.ft_balance_of({
+        //         account_id: keyPair.account_id
+        //   }
+        //   )
+        //   .then(res => {
+        //       console.log(res)
+        //         setBalance(res);
+        //   })
+          if (window.location.href.includes('?sender')) {
+            const newUrl = new URL(window.location.href);
+            setStreamData({
+                    ...streamData,
+                    sender: newUrl.searchParams.get('sender'),
+                    receiver: newUrl.searchParams.get('receiver'),
+                    amount: newUrl.searchParams.get('amount'),
+            })
+        }
       }, [])
 
     const accountValidity = async (near) => {
@@ -226,9 +236,9 @@ console.log(url.toString());
                     <p style={{textAlign: 'center'}}>Start sending payments to a freelancer in real-time.</p>
                     <div className="form">
                         <label>Receiver:</label><br />
-                        <input type="text" value={streamData.receiver} placeholder="Enter receiver's account ID" id="receiver" onChange={updateStreamData} /><br />
+                        <input type="text" value={streamData.receiver} placeholder="Enter receiver's account ID" id="receiver" onChange={(e) => {setStreamData({...streamData, receiver: e.target.value})}} /><br />
                         <label>Stream initial deposit:</label><br />
-                        <input type="text" value={streamData.amount} placeholder="Enter amount" id="amount" onChange={updateStreamData} /><br />
+                        <input type="text" value={streamData.amount !== 0 ? streamData.amount : ''} placeholder="Enter amount" id="amount" onChange={updateStreamData} /><br />
                         <label>End date:</label><br />
                         <DatePicker minDate={new Date()} id="endDate" onChange={updateStreamData} /><br />
                         <label>Comment:</label><br />
@@ -242,7 +252,7 @@ console.log(url.toString());
                     <p style={{textAlign: 'center'}}>Receive payments from clients in real-time.</p>
                     <div className="form">
                         <label>Sender:</label><br />
-                        <input type="text" placeholder="Enter sender's account ID" id="sender" onChange={(e) => {setStreamData({...streamData, sender: e.target.value})}} /><br />
+                        <input type="text" placeholder="Enter sender's account ID" id="sender" onChange={(e) => {console.log(e);setStreamData({...streamData, sender: e.target.value})}} /><br />
                         <label>Receiver:</label><br />
                         <input type="text" placeholder="Enter receiver's account ID" id="receiver" onChange={(e) => {setStreamData({...streamData, receiver: e.target.value})}} /><br />
                         <label>Stream initial deposit:</label><br />
