@@ -1,0 +1,41 @@
+.logo {
+    width: 50px;
+    float: left;
+    margin-left: 50px;
+}
+
+.header {
+    margin: 40px;
+}
+
+.menu {
+    margin-right: 10px;
+    font-size: 17px;
+    /* margin-top: 10px; */
+    margin-left: 65px;
+}
+
+.menu a {
+    text-decoration: none;
+    /* margin-top: 50px; */
+    margin-right: 20px;
+    color: black;
+}
+
+.header button {
+    background-color: #60bcf7;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    float: right;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.accountId {
+    margin-left: 600px !important;
+    position: relative;
+    display: inline;
+    padding: 20px;
+}

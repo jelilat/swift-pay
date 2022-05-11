@@ -1,0 +1,65 @@
+.payment-menu {
+    margin-top: 300px;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.payment-menu span {
+    margin: 20px;
+    cursor: pointer;
+}
+
+.payment-menu span:hover {
+    color: #fff;
+    background-color: #60bcf7;
+    padding: 0.5em
+}
+
+.payment-menu span:active {
+    color: #fff;
+    background-color: #60bcf7;
+    padding: 0.5em;
+}
+
+.line {
+    height: 1px;
+    background-color: black;
+    /* width: 90%; */
+    margin: 0 100px;
+    text-align: center;
+}
+
+.individual {
+    margin: 0 auto;
+}
+
+.form {
+    margin: auto;
+    width: 50%
+}
+
+input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 100px;
+}
+
+.form button {
+    background-color: #60bcf7;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+    width: 100%;
+}
